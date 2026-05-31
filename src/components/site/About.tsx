@@ -1,6 +1,7 @@
 import { Dumbbell, HeartPulse, Target, Users } from "lucide-react";
 import about1 from "@/assets/gym-17.jpg";
 import about2 from "@/assets/gym-15.jpg";
+import about3 from "@/assets/gym-3.jpg";
 
 const FEATURES = [
   { icon: Dumbbell, title: "Premium Equipment", text: "Strength, functional and cardio gear across an expansive floor." },
@@ -65,7 +66,7 @@ export default function About() {
                 </div>
               </div>
               <div className="col-span-3 row-span-2 rounded-lg overflow-hidden shadow-elevated">
-                <img src="/src/assets/gym-3.jpg" alt="Red strength equipment row" className="w-full h-full object-cover" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'}} />
+                <img src={about3} alt="Red strength equipment row" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
