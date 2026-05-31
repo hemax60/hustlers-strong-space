@@ -1,29 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Header from "@/components/site/Header";
+import Hero from "@/components/site/Hero";
+import About from "@/components/site/About";
+import Gallery from "@/components/site/Gallery";
+import Contact from "@/components/site/Contact";
+import Footer from "@/components/site/Footer";
+import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Hustlers Health & Fitness — Premium Gym in Adajan, Surat" },
+      { name: "description", content: "Modern, premium gym in Adajan, Surat. Strength, cardio, InBody analysis and a positive workout environment. Train Strong. Stay Consistent." },
+      { property: "og:title", content: "Hustlers Health & Fitness — Premium Gym in Adajan, Surat" },
+      { property: "og:description", content: "Train Strong. Stay Consistent. Become Your Best Version." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="bg-background text-foreground">
+      <Header />
+      <Hero />
+      <About />
+      <Gallery />
+      <Contact />
+      <Footer />
+      <FloatingWhatsApp />
+    </main>
   );
 }
