@@ -118,9 +118,6 @@ export default function Gallery() {
             className="max-h-[88vh] max-w-[92vw] object-contain rounded-lg shadow-elevated"
             onClick={(e) => e.stopPropagation()}
           />
-          <div className="absolute bottom-5 left-0 right-0 text-center text-foreground/70 text-sm">
-            {idx + 1} / {IMAGES.length} — {IMAGES[idx].alt}
-          </div>
         </div>
       )}
     </section>
