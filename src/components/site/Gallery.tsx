@@ -17,20 +17,20 @@ import g17 from "@/assets/gym-17.jpg";
 import g18 from "@/assets/gym-18.jpg";
 
 const IMAGES: { src: string; alt: string }[] = [
-  { src: g1, alt: "Premium gym floor with red equipment and overhead lighting" },
-  { src: g17, alt: "Panoramic view of Hustlers gym training floor" },
+  { src: g1, alt: "Gym floor with equipment and overhead lighting" },
+  { src: g17, alt: "Panoramic view of training floor" },
   { src: g4, alt: "Strength training zone with mirrors" },
   { src: g14, alt: "Red squat rack with punching bag" },
-  { src: g15, alt: "Member doing incline dumbbell press" },
+  { src: g15, alt: "Incline dumbbell press station" },
   { src: g3, alt: "Hammer-strength machines lined up" },
-  { src: g16, alt: "Member on chest press machine" },
+  { src: g16, alt: "Chest press machine" },
   { src: g6, alt: "Loaded barbell with gym floor in background" },
   { src: g13, alt: "Red cable functional trainer machine" },
   { src: g7, alt: "Olympic plates and red rack" },
-  { src: g18, alt: "Member using the stair climber" },
-  { src: g9, alt: "InBody body composition analyzer" },
-  { src: g8, alt: "Hustlers team member in branded jersey" },
-  { src: g11, alt: "Hustlers Health & Fitness storefront at night" },
+  { src: g18, alt: "Stair climber cardio equipment" },
+  { src: g9, alt: "Body composition analyzer" },
+  { src: g8, alt: "Branded team jersey display" },
+  { src: g11, alt: "Storefront at night" },
 ];
 
 export default function Gallery() {
