@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo-horizontal.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle } from "lucide-react";
+import { SITE } from "@/lib/site-config";
 
 const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -29,15 +32,11 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 shrink-0">
-          <img
-            src={logo}
-            alt="Hustlers Health & Fitness"
-            className="h-9 sm:h-11 w-auto"
-          />
-        </a>
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <img src={logo} alt="Hustlers Health & Fitness" className="h-9 sm:h-11 w-auto" />
+        </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {NAV.map((n) => (
             <a
               key={n.href}
@@ -47,8 +46,28 @@ export default function Header() {
               {n.label}
             </a>
           ))}
+          <div className="flex items-center gap-2 pl-2 border-l border-border">
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="p-2 text-foreground/80 hover:text-primary transition"
+            >
+              <Instagram size={18} />
+            </a>
+            <a
+              href={SITE.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="p-2 text-foreground/80 hover:text-primary transition"
+            >
+              <MessageCircle size={18} />
+            </a>
+          </div>
           <a
-            href="#contact"
+            href="/#contact"
             className="bg-gradient-red text-primary-foreground px-5 py-2.5 rounded-md text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition shadow-red"
           >
             Join Now
@@ -77,8 +96,16 @@ export default function Header() {
                 {n.label}
               </a>
             ))}
+            <div className="flex items-center gap-3 py-3">
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 rounded-md border border-border text-foreground/90 hover:text-primary hover:border-primary transition">
+                <Instagram size={18} />
+              </a>
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-2 rounded-md border border-border text-foreground/90 hover:text-primary hover:border-primary transition">
+                <MessageCircle size={18} />
+              </a>
+            </div>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-2 bg-gradient-red text-primary-foreground text-center px-5 py-3 rounded-md font-semibold uppercase tracking-wider shadow-red"
             >
