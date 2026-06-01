@@ -4,12 +4,10 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import g1 from "@/assets/gym-1.jpg";
 import g3 from "@/assets/gym-3.jpg";
 import g4 from "@/assets/gym-4.jpg";
-import g5 from "@/assets/gym-5.jpg";
 import g6 from "@/assets/gym-6.jpg";
 import g7 from "@/assets/gym-7.jpg";
 import g8 from "@/assets/gym-8.jpg";
 import g9 from "@/assets/gym-9.jpg";
-import g10 from "@/assets/gym-10.jpg";
 import g11 from "@/assets/gym-11.jpg";
 import g13 from "@/assets/gym-13.jpg";
 import g14 from "@/assets/gym-14.jpg";
@@ -28,12 +26,10 @@ const IMAGES: { src: string; alt: string }[] = [
   { src: g16, alt: "Member on chest press machine" },
   { src: g6, alt: "Loaded barbell with gym floor in background" },
   { src: g13, alt: "Red cable functional trainer machine" },
-  { src: g5, alt: "Member training on cable machine" },
   { src: g7, alt: "Olympic plates and red rack" },
   { src: g18, alt: "Member using the stair climber" },
   { src: g9, alt: "InBody body composition analyzer" },
   { src: g8, alt: "Hustlers team member in branded jersey" },
-  { src: g10, alt: "Hustlers staff in branded uniform" },
   { src: g11, alt: "Hustlers Health & Fitness storefront at night" },
 ];
 
