@@ -1,5 +1,5 @@
 import logo from "@/assets/logo-horizontal.png";
-import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube } from "lucide-react";
 import { SITE } from "@/lib/site-config";
 
 const YEAR = new Date().getFullYear();
@@ -26,6 +26,9 @@ export default function Footer() {
             <div className="mt-5 flex items-center gap-2">
               <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-foreground/80 hover:text-primary hover:border-primary transition">
                 <Instagram size={18} />
+              </a>
+              <a href={SITE.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-foreground/80 hover:text-primary hover:border-primary transition">
+                <Youtube size={18} />
               </a>
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-foreground/80 hover:text-primary hover:border-primary transition">
                 <MessageCircle size={18} />
