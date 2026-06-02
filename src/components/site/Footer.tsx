@@ -1,6 +1,7 @@
 import logo from "@/assets/logo-horizontal.png";
-import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube, Clock } from "lucide-react";
 import { SITE } from "@/lib/site-config";
+import { HOURS } from "@/components/site/Hours";
 
 const YEAR = new Date().getFullYear();
 

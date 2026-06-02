@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { MapPin, Phone, Mail, MessageCircle, Send, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Send, Navigation, Clock } from "lucide-react";
 import { SITE } from "@/lib/site-config";
+import { HoursList, HoursBadge } from "@/components/site/Hours";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -62,6 +63,26 @@ export default function Contact() {
                 <div className="mt-1 text-base font-medium group-hover:text-primary transition">{SITE.address}</div>
               </div>
             </a>
+
+            <div className="p-6 rounded-lg bg-card border border-border">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 shrink-0 rounded-md bg-gradient-red flex items-center justify-center shadow-red">
+                    <Clock className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-widest text-muted-foreground">Gym Timings</div>
+                    <div className="mt-1 text-lg font-semibold">Open 7 days a week</div>
+                  </div>
+                </div>
+                <HoursBadge />
+              </div>
+              <div className="mt-5">
+                <HoursList compact />
+              </div>
+            </div>
+
+
 
             <div className="rounded-lg overflow-hidden border border-border bg-card">
               <iframe
