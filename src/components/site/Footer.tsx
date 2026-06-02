@@ -1,6 +1,7 @@
 import logo from "@/assets/logo-horizontal.png";
-import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube, Clock } from "lucide-react";
 import { SITE } from "@/lib/site-config";
+import { HOURS } from "@/components/site/Hours";
 
 const YEAR = new Date().getFullYear();
 
@@ -52,13 +53,30 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display uppercase tracking-widest text-sm text-foreground">Visit</h4>
+            <h4 className="font-display uppercase tracking-widest text-sm text-foreground">Visit & Hours</h4>
             <div className="mt-4 h-px w-10 bg-primary" />
             <a href={SITE.mapsLink} target="_blank" rel="noopener noreferrer" className="mt-4 text-sm text-muted-foreground hover:text-primary flex items-start gap-3">
               <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
               <span>{SITE.address}</span>
             </a>
+            <div className="mt-4 space-y-2">
+              {HOURS.map((h) => (
+                <div key={h.day} className="text-sm flex items-start gap-3">
+                  <Clock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                  <div>
+                    <div className="text-foreground font-semibold">{h.day}</div>
+                    {h.times.map((t) => (
+                      <div key={t} className="text-muted-foreground">{t}</div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <span className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-red text-primary-foreground text-[11px] font-bold uppercase tracking-widest shadow-red">
+              Open 362 Days a Year
+            </span>
           </div>
+
 
           <div>
             <h4 className="font-display uppercase tracking-widest text-sm text-foreground">Contact</h4>
