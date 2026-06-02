@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo-horizontal.png";
-import { Menu, X, Instagram, MessageCircle } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle, Youtube } from "lucide-react";
 import { SITE } from "@/lib/site-config";
 
 const NAV = [
@@ -57,6 +57,15 @@ export default function Header() {
               <Instagram size={18} />
             </a>
             <a
+              href={SITE.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 text-foreground/80 hover:text-primary transition"
+            >
+              <Youtube size={18} />
+            </a>
+            <a
               href={SITE.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
@@ -99,6 +108,9 @@ export default function Header() {
             <div className="flex items-center gap-3 py-3">
               <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 rounded-md border border-border text-foreground/90 hover:text-primary hover:border-primary transition">
                 <Instagram size={18} />
+              </a>
+              <a href={SITE.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="p-2 rounded-md border border-border text-foreground/90 hover:text-primary hover:border-primary transition">
+                <Youtube size={18} />
               </a>
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-2 rounded-md border border-border text-foreground/90 hover:text-primary hover:border-primary transition">
                 <MessageCircle size={18} />
