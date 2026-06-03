@@ -1,16 +1,18 @@
 import logo from "@/assets/logo-horizontal.png";
 import { Mail, MapPin, Phone, Instagram, MessageCircle, Map as MapIcon, Youtube, Clock } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/site-config";
 import { HOURS } from "@/components/site/Hours";
 
 const YEAR = new Date().getFullYear();
 
 const QUICK = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", to: "/" as const },
+  { label: "About", to: "/about" as const },
+  { label: "Our Story", to: "/story" as const },
+  { label: "Gallery", to: "/gallery" as const },
+  { label: "Blog", to: "/blog" as const },
+  { label: "Contact", to: "/contact" as const },
 ];
 
 export default function Footer() {
@@ -45,8 +47,8 @@ export default function Footer() {
             <div className="mt-4 h-px w-10 bg-primary" />
             <ul className="mt-4 space-y-2 text-sm">
               {QUICK.map((q) => (
-                <li key={q.href}>
-                  <a href={q.href} className="text-muted-foreground hover:text-primary transition">{q.label}</a>
+                <li key={q.to}>
+                  <Link to={q.to} className="text-muted-foreground hover:text-primary transition">{q.label}</Link>
                 </li>
               ))}
             </ul>
