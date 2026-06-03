@@ -8,8 +8,8 @@ import {
   Eye,
   Target,
   Sparkles,
+  User,
 } from "lucide-react";
-import founderImg from "@/assets/gym-14.jpg";
 
 const MISSION = [
   "Help people achieve lasting health and fitness results.",
@@ -54,45 +54,38 @@ export default function BrandStory() {
       {/* Founder */}
       <section id="founder" className="py-24 sm:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-elevated border border-border">
-                <img
-                  src={founderImg}
-                  alt="Hemax Bhandari, founder of Hustlers Health & Fitness"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-gradient-red text-primary-foreground px-6 py-4 rounded-lg shadow-red max-w-[260px]">
-                <div className="text-[10px] uppercase tracking-widest opacity-90">Founder</div>
-                <div className="font-display text-2xl font-bold uppercase leading-tight">
-                  Hemax Bhandari
-                </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
+              <User className="w-4 h-4 text-primary" />
+              <span className="text-xs uppercase tracking-widest text-primary font-semibold">
+                Meet the Founder
+              </span>
+            </div>
+            <h2 className="mt-6 font-display text-4xl sm:text-5xl font-bold uppercase leading-tight text-balance">
+              Built on a <span className="text-primary">Hustler's Mindset</span>
+            </h2>
+            <div className="mt-6 h-1 w-20 bg-gradient-red rounded-full mx-auto" />
+
+            <div className="mt-10 inline-block px-8 py-5 rounded-xl bg-gradient-red text-primary-foreground shadow-red">
+              <div className="text-[10px] uppercase tracking-widest opacity-90">Founder</div>
+              <div className="font-display text-3xl sm:text-4xl font-bold uppercase leading-tight">
+                Hemax Bhandari
               </div>
             </div>
 
-            <div>
-              <span className="text-primary font-semibold uppercase tracking-widest text-sm">
-                Meet the Founder
-              </span>
-              <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold uppercase leading-tight text-balance">
-                Built on a <span className="text-primary">Hustler's Mindset</span>
-              </h2>
-              <div className="mt-6 h-1 w-20 bg-gradient-red rounded-full" />
-              <p className="mt-8 text-foreground/85 text-lg leading-relaxed">
-                Hustlers Health & Fitness was founded with a vision to create more than just
-                a gym. The goal is to build a place where people can improve their health,
-                confidence, discipline, and lifestyle through consistency and hard work.
+            <p className="mt-10 text-foreground/85 text-lg leading-relaxed">
+              Hustlers Health & Fitness was founded with a vision to create more than just
+              a gym. The goal is to build a place where people can improve their health,
+              confidence, discipline, and lifestyle through consistency and hard work.
+            </p>
+            <div className="mt-10 p-6 sm:p-8 rounded-xl bg-card border border-border relative text-left">
+              <Quote className="w-8 h-8 text-primary/40 absolute -top-3 left-5 bg-background px-1" />
+              <p className="italic text-foreground/90 leading-relaxed">
+                "Fitness isn't about being better than others. It's about being better than
+                who you were yesterday."
               </p>
-              <div className="mt-8 p-6 rounded-xl bg-card border border-border relative">
-                <Quote className="w-8 h-8 text-primary/40 absolute -top-3 left-5 bg-background px-1" />
-                <p className="italic text-foreground/90 leading-relaxed">
-                  "Fitness isn't about being better than others. It's about being better than
-                  who you were yesterday."
-                </p>
-                <div className="mt-4 text-xs uppercase tracking-widest text-primary font-semibold">
-                  — Hemax Bhandari, Founder
-                </div>
+              <div className="mt-4 text-xs uppercase tracking-widest text-primary font-semibold">
+                — Hemax Bhandari, Founder
               </div>
             </div>
           </div>
