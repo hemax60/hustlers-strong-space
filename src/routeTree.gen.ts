@@ -11,11 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FitnessArticlesRouteImport } from './routes/fitness-articles'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
@@ -27,14 +26,14 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FitnessArticlesRoute = FitnessArticlesRouteImport.update({
+  id: '/fitness-articles',
+  path: '/fitness-articles',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -47,75 +46,58 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
+    | '/fitness-articles'
     | '/gallery'
     | '/story'
-    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/blog'
-    | '/contact'
-    | '/gallery'
-    | '/story'
-    | '/blog/$slug'
+  to: '/' | '/about' | '/contact' | '/fitness-articles' | '/gallery' | '/story'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
+    | '/fitness-articles'
     | '/gallery'
     | '/story'
-    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
+  FitnessArticlesRoute: typeof FitnessArticlesRoute
   GalleryRoute: typeof GalleryRoute
   StoryRoute: typeof StoryRoute
 }
@@ -136,18 +118,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fitness-articles': {
+      id: '/fitness-articles'
+      path: '/fitness-articles'
+      fullPath: '/fitness-articles'
+      preLoaderRoute: typeof FitnessArticlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -164,31 +146,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
-    }
   }
 }
-
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
+  FitnessArticlesRoute: FitnessArticlesRoute,
   GalleryRoute: GalleryRoute,
   StoryRoute: StoryRoute,
 }
