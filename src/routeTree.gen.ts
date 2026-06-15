@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FitnessArticlesRouteImport } from './routes/fitness-articles'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const StoryRoute = StoryRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FitnessArticlesRoute = FitnessArticlesRouteImport.update({
+  id: '/fitness-articles',
+  path: '/fitness-articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
@@ -60,21 +68,36 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/fitness-articles': typeof FitnessArticlesRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/gallery' | '/story'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/fitness-articles'
+    | '/gallery'
+    | '/story'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/gallery' | '/story'
-  id: '__root__' | '/' | '/about' | '/contact' | '/gallery' | '/story'
+  to: '/' | '/about' | '/contact' | '/fitness-articles' | '/gallery' | '/story'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/fitness-articles'
+    | '/gallery'
+    | '/story'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  FitnessArticlesRoute: typeof FitnessArticlesRoute
   GalleryRoute: typeof GalleryRoute
   StoryRoute: typeof StoryRoute
 }
@@ -93,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fitness-articles': {
+      id: '/fitness-articles'
+      path: '/fitness-articles'
+      fullPath: '/fitness-articles'
+      preLoaderRoute: typeof FitnessArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -123,6 +153,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  FitnessArticlesRoute: FitnessArticlesRoute,
   GalleryRoute: GalleryRoute,
   StoryRoute: StoryRoute,
 }
