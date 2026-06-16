@@ -86,8 +86,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Hustlers Health & Fitness — Premium Gym in Adajan, Surat" },
       { name: "twitter:description", content: "Hustlers Health & Fitness, Adajan — a modern, premium gym in Surat built to help you transform your body and life. Train strong, stay consistent." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f8fea535-ba82-4294-b2c2-bbf8b18a7850" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f8fea535-ba82-4294-b2c2-bbf8b18a7850" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dbd1e664-aab4-41ef-8272-5807098ec9a8" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dbd1e664-aab4-41ef-8272-5807098ec9a8" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
