@@ -12,6 +12,7 @@ const QUICK = [
   { label: "Our Story", to: "/story" as const },
   { label: "Gallery", to: "/gallery" as const },
   { label: "Fitness Articles", to: "/fitness-articles" as const },
+  { label: "Franchise", to: "/franchise" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 

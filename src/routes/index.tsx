@@ -58,6 +58,29 @@ function Index() {
         </div>
       </section>
 
+      {/* Franchise CTA */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm">
+            Franchise Opportunities
+          </span>
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold uppercase leading-tight text-balance">
+            Bring <span className="text-primary">Hustlers</span> To Your City
+          </h2>
+          <div className="mt-6 h-1 w-20 bg-gradient-red rounded-full mx-auto" />
+          <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Interested in building a premium fitness business? Explore franchise opportunities with
+            Hustlers Health & Fitness and become part of our growth journey.
+          </p>
+          <Link
+            to="/franchise"
+            className="mt-10 inline-flex items-center gap-2 bg-gradient-red text-primary-foreground px-7 py-4 rounded-md font-bold uppercase tracking-wider shadow-red hover:opacity-95 transition"
+          >
+            Learn More <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
       <Gallery />
       <Contact />
       <Footer />
