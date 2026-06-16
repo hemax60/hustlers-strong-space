@@ -10,6 +10,7 @@ const NAV = [
   { label: "Our Story", to: "/story" as const },
   { label: "Gallery", to: "/gallery" as const },
   { label: "Fitness Articles", to: "/fitness-articles" as const },
+  { label: "Franchise", to: "/franchise" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 
@@ -61,6 +62,12 @@ export default function Header() {
             </a>
           </div>
           <Link
+            to="/franchise"
+            className="border border-primary/60 text-primary px-4 py-2.5 rounded-md text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Own a Franchise
+          </Link>
+          <Link
             to="/contact"
             className="bg-gradient-red text-primary-foreground px-5 py-2.5 rounded-md text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition shadow-red"
           >
@@ -103,6 +110,13 @@ export default function Header() {
                 <MessageCircle size={18} />
               </a>
             </div>
+            <Link
+              to="/franchise"
+              onClick={() => setOpen(false)}
+              className="mt-2 border border-primary/60 text-primary text-center px-5 py-3 rounded-md font-semibold uppercase tracking-wider"
+            >
+              Own a Franchise
+            </Link>
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
