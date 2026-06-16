@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FranchiseRouteImport } from './routes/franchise'
 import { Route as FitnessArticlesRouteImport } from './routes/fitness-articles'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +25,11 @@ const StoryRoute = StoryRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FranchiseRoute = FranchiseRouteImport.update({
+  id: '/franchise',
+  path: '/franchise',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FitnessArticlesRoute = FitnessArticlesRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/fitness-articles': typeof FitnessArticlesRoute
+  '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/fitness-articles': typeof FitnessArticlesRoute
+  '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/fitness-articles': typeof FitnessArticlesRoute
+  '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/story': typeof StoryRoute
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/fitness-articles'
+    | '/franchise'
     | '/gallery'
     | '/story'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/fitness-articles' | '/gallery' | '/story'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/fitness-articles'
+    | '/franchise'
+    | '/gallery'
+    | '/story'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/fitness-articles'
+    | '/franchise'
     | '/gallery'
     | '/story'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FitnessArticlesRoute: typeof FitnessArticlesRoute
+  FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
   StoryRoute: typeof StoryRoute
 }
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/franchise': {
+      id: '/franchise'
+      path: '/franchise'
+      fullPath: '/franchise'
+      preLoaderRoute: typeof FranchiseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fitness-articles': {
@@ -154,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FitnessArticlesRoute: FitnessArticlesRoute,
+  FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
   StoryRoute: StoryRoute,
 }
