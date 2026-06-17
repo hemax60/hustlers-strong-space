@@ -9,19 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StoryRouteImport } from './routes/story'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
-import { Route as FitnessArticlesRouteImport } from './routes/fitness-articles'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const StoryRoute = StoryRouteImport.update({
-  id: '/story',
-  path: '/story',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
@@ -30,11 +23,6 @@ const GalleryRoute = GalleryRouteImport.update({
 const FranchiseRoute = FranchiseRouteImport.update({
   id: '/franchise',
   path: '/franchise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FitnessArticlesRoute = FitnessArticlesRouteImport.update({
-  id: '/fitness-articles',
-  path: '/fitness-articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -57,79 +45,42 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/fitness-articles': typeof FitnessArticlesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
-  '/story': typeof StoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/fitness-articles': typeof FitnessArticlesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
-  '/story': typeof StoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/fitness-articles': typeof FitnessArticlesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
-  '/story': typeof StoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/fitness-articles'
-    | '/franchise'
-    | '/gallery'
-    | '/story'
+  fullPaths: '/' | '/about' | '/contact' | '/franchise' | '/gallery'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/fitness-articles'
-    | '/franchise'
-    | '/gallery'
-    | '/story'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/fitness-articles'
-    | '/franchise'
-    | '/gallery'
-    | '/story'
+  to: '/' | '/about' | '/contact' | '/franchise' | '/gallery'
+  id: '__root__' | '/' | '/about' | '/contact' | '/franchise' | '/gallery'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  FitnessArticlesRoute: typeof FitnessArticlesRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
-  StoryRoute: typeof StoryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/story': {
-      id: '/story'
-      path: '/story'
-      fullPath: '/story'
-      preLoaderRoute: typeof StoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
@@ -142,13 +93,6 @@ declare module '@tanstack/react-router' {
       path: '/franchise'
       fullPath: '/franchise'
       preLoaderRoute: typeof FranchiseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fitness-articles': {
-      id: '/fitness-articles'
-      path: '/fitness-articles'
-      fullPath: '/fitness-articles'
-      preLoaderRoute: typeof FitnessArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -179,21 +123,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  FitnessArticlesRoute: FitnessArticlesRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
-  StoryRoute: StoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
