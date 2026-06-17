@@ -4,6 +4,7 @@ import Footer from "@/components/site/Footer";
 import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
 import About from "@/components/site/About";
 import Hours from "@/components/site/Hours";
+import BrandStory from "@/components/site/BrandStory";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,13 +13,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Learn about Hustlers Health & Fitness — a premium gym in Adajan, Surat built for strength, consistency, and a strong fitness community.",
+          "Learn about Hustlers Health & Fitness — our founder Hemax Bhandari, vision, mission, core values, and the Hustler's mindset behind the brand.",
       },
       { property: "og:title", content: "About — Hustlers Health & Fitness" },
       {
         property: "og:description",
         content:
-          "A modern, premium gym in Adajan, Surat built for strength, consistency, and community.",
+          "Meet the founder, our vision, mission, and the values that shape Hustlers Health & Fitness in Adajan, Surat.",
       },
     ],
   }),
@@ -32,6 +33,7 @@ function AboutPage() {
       <div className="pt-24" />
       <About />
       <Hours />
+      <BrandStory />
       <Footer />
       <FloatingWhatsApp />
     </main>
