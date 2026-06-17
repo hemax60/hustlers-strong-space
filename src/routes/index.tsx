@@ -50,7 +50,7 @@ function Index() {
             </div>
           </div>
           <Link
-            to="/story"
+            to="/about"
             className="mt-10 inline-flex items-center gap-2 bg-gradient-red text-primary-foreground px-7 py-4 rounded-md font-bold uppercase tracking-wider shadow-red hover:opacity-95 transition"
           >
             Read Our Story <ArrowRight size={18} />
