@@ -5,12 +5,9 @@ import { Menu, X, Instagram, MessageCircle, Youtube } from "lucide-react";
 import { SITE } from "@/lib/site-config";
 
 const NAV = [
-  { label: "Home", to: "/" as const },
   { label: "About", to: "/about" as const },
-  { label: "Our Story", to: "/story" as const },
   { label: "Gallery", to: "/gallery" as const },
-  { label: "Fitness Articles", to: "/fitness-articles" as const },
-  { label: "Franchise", to: "/franchise" as const },
+  { label: "Blogs", to: "/blogs" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 
