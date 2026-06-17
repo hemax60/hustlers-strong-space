@@ -6,16 +6,16 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { SITE } from "@/lib/site-config";
 import { MessageCircle, Phone } from "lucide-react";
 
-export const Route = createFileRoute("/fitness-articles")({
+export const Route = createFileRoute("/blogs")({
   head: () => ({
     meta: [
-      { title: "Fitness Articles — Hustlers Health & Fitness, Surat" },
-      { name: "description", content: "Fitness, strength training, weight management and healthy-lifestyle articles from the coaches at Hustlers Health & Fitness, Adajan, Surat." },
-      { property: "og:title", content: "Fitness Articles — Hustlers Health & Fitness" },
-      { property: "og:description", content: "Expert articles on training, nutrition, mindset, and long-term health." },
+      { title: "Blogs — Hustlers Health & Fitness, Surat" },
+      { name: "description", content: "Fitness, strength training, weight management and healthy-lifestyle blogs from the coaches at Hustlers Health & Fitness, Adajan, Surat." },
+      { property: "og:title", content: "Blogs — Hustlers Health & Fitness" },
+      { property: "og:description", content: "Expert blogs on training, nutrition, mindset, and long-term health." },
     ],
   }),
-  component: FitnessArticlesPage,
+  component: BlogsPage,
 });
 
 type Article = { title: string; body: string[]; cta?: string };
@@ -39,66 +39,65 @@ const ARTICLES: Article[] = [
     body: [
       "Strength training helps build muscle, improve posture, strengthen bones, and increase confidence. Beginners should focus on proper technique before increasing weight. Basic exercises such as squats, presses, rows, and core work create a strong foundation. Training consistently, eating balanced meals, and allowing time for recovery are essential. Progress should be measured over months rather than days. Strength training is a long-term investment in health and performance.",
     ],
-    cta: "Ready to start your fitness journey? Visit Hustlers Health & Fitness and take the first step toward a stronger, healthier version of yourself.",
   },
   {
     title: "Why Consistency Matters More Than Motivation",
     body: [
-      "Motivation comes and goes, but consistency creates results. Many people begin fitness journeys with excitement but struggle when motivation decreases. The most successful individuals rely on routines and habits rather than feelings. Small efforts repeated regularly outperform occasional bursts of intense activity. Consistency builds discipline, improves confidence, and creates sustainable progress over time.",
+      "Motivation comes and goes, but consistency builds results. Showing up regularly, even on low-energy days, creates lasting change. Consistency develops discipline, improves performance, and turns fitness into a lifestyle rather than a temporary goal. Successful members focus on routine, not mood. They build habits that support training, recovery, and nutrition. Over time, these habits create transformation. At Hustlers Health & Fitness, we help members build consistency through structured programs, supportive coaching, and a strong community environment.",
     ],
-    cta: "Ready to start your fitness journey? Visit Hustlers Health & Fitness and take the first step toward a stronger, healthier version of yourself.",
   },
   {
     title: "Exercise and Weight Management",
     body: [
-      "Exercise plays a major role in maintaining a healthy weight. Physical activity increases calorie expenditure, supports metabolism, and helps preserve muscle mass during weight loss. Combined with proper nutrition, exercise creates a sustainable approach to body composition improvement. Long-term success comes from balanced habits rather than extreme diets.",
+      "Exercise plays a key role in weight management. It supports calorie balance, improves metabolism, increases muscle mass, and helps maintain long-term results. Sustainable weight management requires a combination of regular movement, balanced nutrition, quality sleep, and stress control. Quick fixes rarely last. The most successful approach is consistent training, proper recovery, and patience. Strength training is especially valuable because it helps maintain lean muscle and improves body composition.",
     ],
   },
   {
     title: "Exercise for Mental Health and Stress Relief",
     body: [
-      "Exercise benefits the mind as much as the body. Physical activity releases endorphins, improves mood, reduces stress, and helps manage anxiety. Regular workouts provide structure, increase confidence, and improve sleep quality. Even moderate activity can create noticeable improvements in mental well-being.",
+      "Exercise is a powerful tool for mental health. It releases endorphins, reduces stress hormones, improves mood, and supports better sleep. Regular movement helps manage anxiety, depression, and emotional fatigue. Even moderate activity such as walking, stretching, or light strength training can significantly improve mental well-being. Many of our members report feeling more focused, calm, and energized after training. Fitness is not only about the body. It is also about the mind.",
     ],
   },
   {
     title: "Common Gym Mistakes Beginners Should Avoid",
     body: [
-      "Common mistakes include skipping warm-ups, using poor technique, lifting too heavy too soon, neglecting recovery, and comparing progress to others. Beginners should focus on learning movement patterns, staying consistent, and being patient. Sustainable progress is more important than quick results.",
+      "Common mistakes include skipping warm-ups, using poor form, lifting too heavy too soon, neglecting recovery, following random workout plans, and expecting fast results. Beginners should focus on learning proper technique, training consistently, and progressing gradually. Working with experienced trainers and following structured programs helps avoid injuries and ensures steady progress. Patience and consistency lead to long-term success.",
     ],
   },
   {
     title: "Cardio vs Strength Training",
     body: [
-      "Both cardio and strength training offer valuable benefits. Cardio improves cardiovascular health and endurance, while strength training builds muscle and increases strength. The best fitness programs include both forms of exercise. The right balance depends on individual goals, fitness level, and preferences.",
+      "Both cardio and strength training are important. Cardio improves heart health, endurance, and calorie burn. Strength training builds muscle, improves metabolism, and supports bone health. A balanced fitness routine includes both. The right mix depends on personal goals, fitness level, and lifestyle. At Hustlers Health & Fitness, we help members combine cardio and strength training in a way that supports their goals and improves overall fitness.",
     ],
   },
   {
     title: "How Fitness Improves Energy and Productivity",
     body: [
-      "Regular exercise improves circulation and oxygen delivery throughout the body, helping people feel more energized. Physical activity can improve concentration, reduce fatigue, and enhance productivity. People who exercise consistently often experience better focus and performance in work and daily life.",
+      "Regular exercise improves energy levels, focus, and productivity. It enhances blood flow, oxygen delivery, and brain function. People who train regularly often report better concentration, sharper thinking, and more stamina throughout the day. Fitness also improves sleep, which directly impacts daily performance. A consistent training routine creates a strong foundation for personal and professional growth.",
     ],
   },
   {
     title: "Building Healthy Habits for Life",
     body: [
-      "Healthy habits are built through consistency, not perfection. Setting realistic goals, creating routines, and focusing on gradual improvement helps people maintain long-term success. Fitness should become part of a sustainable lifestyle. Small positive actions performed daily create meaningful results over time.",
+      "Healthy habits are the foundation of long-term fitness. Small daily actions such as drinking enough water, sleeping well, eating balanced meals, moving regularly, and managing stress create lasting results. Habits remove the need for motivation and make healthy living automatic. Building strong habits requires patience, consistency, and a supportive environment. At Hustlers Health & Fitness, we help members create habits that support a healthy lifestyle for life.",
     ],
+    cta: "Join Hustlers Health & Fitness and build the habits, strength, and mindset that transform your life.",
   },
 ];
 
-function FitnessArticlesPage() {
+function BlogsPage() {
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Header />
 
       <section className="pt-32 sm:pt-40 pb-12 border-b border-border">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          <span className="text-primary font-semibold uppercase tracking-widest text-sm">Fitness Articles</span>
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm">Blogs</span>
           <h1 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-balance">
             Train Smarter. <span className="text-primary">Live Stronger.</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-2xl">
-            Practical articles from the coaches at Hustlers Health & Fitness — tap any title below
+            Practical blogs from the coaches at Hustlers Health & Fitness — tap any title below
             to read the full article.
           </p>
         </div>
