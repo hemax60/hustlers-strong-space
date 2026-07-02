@@ -7,6 +7,7 @@ import { SITE } from "@/lib/site-config";
 const NAV = [
   { label: "About", to: "/about" as const },
   { label: "Gallery", to: "/gallery" as const },
+  { label: "Business Network", to: "/business-network" as const },
   { label: "Blogs", to: "/blogs" as const },
   { label: "Contact", to: "/contact" as const },
 ];
