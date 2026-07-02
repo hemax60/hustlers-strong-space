@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BusinessNetworkRouteImport } from './routes/business-network'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BusinessNetworkIndexRouteImport } from './routes/business-network.index'
+import { Route as BusinessNetworkSlugRouteImport } from './routes/business-network.$slug'
 
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
@@ -29,6 +32,11 @@ const FranchiseRoute = FranchiseRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessNetworkRoute = BusinessNetworkRouteImport.update({
+  id: '/business-network',
+  path: '/business-network',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsRoute = BlogsRouteImport.update({
@@ -46,14 +54,27 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessNetworkIndexRoute = BusinessNetworkIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BusinessNetworkRoute,
+} as any)
+const BusinessNetworkSlugRoute = BusinessNetworkSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BusinessNetworkRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
+  '/business-network': typeof BusinessNetworkRouteWithChildren
   '/contact': typeof ContactRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/business-network/$slug': typeof BusinessNetworkSlugRoute
+  '/business-network/': typeof BusinessNetworkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,35 +83,61 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/business-network/$slug': typeof BusinessNetworkSlugRoute
+  '/business-network': typeof BusinessNetworkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
+  '/business-network': typeof BusinessNetworkRouteWithChildren
   '/contact': typeof ContactRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/business-network/$slug': typeof BusinessNetworkSlugRoute
+  '/business-network/': typeof BusinessNetworkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/blogs' | '/contact' | '/franchise' | '/gallery'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/business-network'
+    | '/contact'
+    | '/franchise'
+    | '/gallery'
+    | '/business-network/$slug'
+    | '/business-network/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/blogs' | '/contact' | '/franchise' | '/gallery'
-  id:
-    | '__root__'
+  to:
     | '/'
     | '/about'
     | '/blogs'
     | '/contact'
     | '/franchise'
     | '/gallery'
+    | '/business-network/$slug'
+    | '/business-network'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/business-network'
+    | '/contact'
+    | '/franchise'
+    | '/gallery'
+    | '/business-network/$slug'
+    | '/business-network/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogsRoute: typeof BlogsRoute
+  BusinessNetworkRoute: typeof BusinessNetworkRouteWithChildren
   ContactRoute: typeof ContactRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
@@ -119,6 +166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business-network': {
+      id: '/business-network'
+      path: '/business-network'
+      fullPath: '/business-network'
+      preLoaderRoute: typeof BusinessNetworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blogs': {
       id: '/blogs'
       path: '/blogs'
@@ -140,13 +194,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business-network/': {
+      id: '/business-network/'
+      path: '/'
+      fullPath: '/business-network/'
+      preLoaderRoute: typeof BusinessNetworkIndexRouteImport
+      parentRoute: typeof BusinessNetworkRoute
+    }
+    '/business-network/$slug': {
+      id: '/business-network/$slug'
+      path: '/$slug'
+      fullPath: '/business-network/$slug'
+      preLoaderRoute: typeof BusinessNetworkSlugRouteImport
+      parentRoute: typeof BusinessNetworkRoute
+    }
   }
 }
+
+interface BusinessNetworkRouteChildren {
+  BusinessNetworkSlugRoute: typeof BusinessNetworkSlugRoute
+  BusinessNetworkIndexRoute: typeof BusinessNetworkIndexRoute
+}
+
+const BusinessNetworkRouteChildren: BusinessNetworkRouteChildren = {
+  BusinessNetworkSlugRoute: BusinessNetworkSlugRoute,
+  BusinessNetworkIndexRoute: BusinessNetworkIndexRoute,
+}
+
+const BusinessNetworkRouteWithChildren = BusinessNetworkRoute._addFileChildren(
+  BusinessNetworkRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogsRoute: BlogsRoute,
+  BusinessNetworkRoute: BusinessNetworkRouteWithChildren,
   ContactRoute: ContactRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
@@ -154,13 +237,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

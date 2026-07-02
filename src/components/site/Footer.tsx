@@ -10,6 +10,7 @@ const QUICK = [
   { label: "Home", to: "/" as const },
   { label: "About", to: "/about" as const },
   { label: "Gallery", to: "/gallery" as const },
+  { label: "Business Network", to: "/business-network" as const },
   { label: "Blogs", to: "/blogs" as const },
   { label: "Franchise", to: "/franchise" as const },
   { label: "Contact", to: "/contact" as const },

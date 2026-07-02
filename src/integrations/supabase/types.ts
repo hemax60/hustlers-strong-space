@@ -14,6 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
+      businesses: {
+        Row: {
+          business_name: string
+          city: string | null
+          contact_number: string | null
+          cover_url: string | null
+          created_at: string
+          description: string
+          email: string | null
+          google_maps_url: string | null
+          id: string
+          instagram: string | null
+          is_active: boolean
+          is_featured: boolean
+          is_verified: boolean
+          keywords: string[]
+          logo_url: string | null
+          owner_name: string
+          primary_category: string
+          secondary_categories: string[]
+          services: string[]
+          short_description: string
+          slug: string
+          updated_at: string
+          view_count: number
+          website: string | null
+          whatsapp_number: string | null
+          years_in_business: number | null
+        }
+        Insert: {
+          business_name: string
+          city?: string | null
+          contact_number?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string
+          email?: string | null
+          google_maps_url?: string | null
+          id?: string
+          instagram?: string | null
+          is_active?: boolean
+          is_featured?: boolean
+          is_verified?: boolean
+          keywords?: string[]
+          logo_url?: string | null
+          owner_name: string
+          primary_category: string
+          secondary_categories?: string[]
+          services?: string[]
+          short_description?: string
+          slug: string
+          updated_at?: string
+          view_count?: number
+          website?: string | null
+          whatsapp_number?: string | null
+          years_in_business?: number | null
+        }
+        Update: {
+          business_name?: string
+          city?: string | null
+          contact_number?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string
+          email?: string | null
+          google_maps_url?: string | null
+          id?: string
+          instagram?: string | null
+          is_active?: boolean
+          is_featured?: boolean
+          is_verified?: boolean
+          keywords?: string[]
+          logo_url?: string | null
+          owner_name?: string
+          primary_category?: string
+          secondary_categories?: string[]
+          services?: string[]
+          short_description?: string
+          slug?: string
+          updated_at?: string
+          view_count?: number
+          website?: string | null
+          whatsapp_number?: string | null
+          years_in_business?: number | null
+        }
+        Relationships: []
+      }
       franchise_leads: {
         Row: {
           city: string
