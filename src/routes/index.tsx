@@ -17,6 +17,36 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Hustlers Health & Fitness — Premium Gym in Adajan, Surat" },
       { property: "og:description", content: "Train Strong. Stay Consistent. Become Your Best Version." },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HealthClub",
+          name: "Hustlers Health & Fitness",
+          url: "https://www.hustlershealthandfitness.com/",
+          telephone: "+917572926060",
+          email: "hustlerssurat@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1st Floor, Piramyd Square, L.P. Savani Road, Adajan",
+            addressLocality: "Surat",
+            addressRegion: "Gujarat",
+            addressCountry: "IN",
+          },
+          hasMap: "https://share.google/p5wNfRukvIQAs2Jdn",
+          sameAs: [
+            "https://www.instagram.com/hustlershealthandfitness/",
+            "https://www.youtube.com/@hustlershealthandfitness",
+          ],
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "06:00", closes: "23:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "07:00", closes: "12:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "17:00", closes: "21:00" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Index,
 });
