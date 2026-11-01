@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BusinessNetworkRouteImport } from './routes/business-network'
 import { Route as BlogsRouteImport } from './routes/blogs'
@@ -27,6 +28,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const FranchiseRoute = FranchiseRouteImport.update({
   id: '/franchise',
   path: '/franchise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/blogs': typeof BlogsRoute
   '/business-network': typeof BusinessNetworkRouteWithChildren
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/blogs': typeof BlogsRoute
   '/business-network': typeof BusinessNetworkRouteWithChildren
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/business-network'
     | '/contact'
+    | '/faq'
     | '/franchise'
     | '/gallery'
     | '/business-network/$slug'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/contact'
+    | '/faq'
     | '/franchise'
     | '/gallery'
     | '/business-network/$slug'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/business-network'
     | '/contact'
+    | '/faq'
     | '/franchise'
     | '/gallery'
     | '/business-network/$slug'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   BlogsRoute: typeof BlogsRoute
   BusinessNetworkRoute: typeof BusinessNetworkRouteWithChildren
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
 }
@@ -157,6 +170,13 @@ declare module '@tanstack/react-router' {
       path: '/franchise'
       fullPath: '/franchise'
       preLoaderRoute: typeof FranchiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -231,6 +251,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogsRoute: BlogsRoute,
   BusinessNetworkRoute: BusinessNetworkRouteWithChildren,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
 }
