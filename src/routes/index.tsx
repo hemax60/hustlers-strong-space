@@ -112,6 +112,11 @@ function Index() {
       </section>
 
       <Gallery />
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 text-center">
+        <Link to="/faq" className="text-primary font-semibold underline underline-offset-4">
+          Planning your first visit? Read our gym FAQs.
+        </Link>
+      </div>
       <Contact />
       <Footer />
       <FloatingWhatsApp />
