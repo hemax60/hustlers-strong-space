@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/blogs")({
   component: BlogsPage,
 });
 
-type Article = { title: string; body: string[]; cta?: string };
+type Article = { title: string; body: string[]; cta?: string; dedicated?: boolean };
 
 const ARTICLES: Article[] = [
   {
@@ -36,8 +36,9 @@ const ARTICLES: Article[] = [
   },
   {
     title: "Strength Training for Beginners",
+    dedicated: true,
     body: [
-      "Strength training helps build muscle, improve posture, strengthen bones, and increase confidence. Beginners should focus on proper technique before increasing weight. Basic exercises such as squats, presses, rows, and core work create a strong foundation. Training consistently, eating balanced meals, and allowing time for recovery are essential. Progress should be measured over months rather than days. Strength training is a long-term investment in health and performance.",
+      "Start with a manageable two-day full-body routine. This beginner guide covers controlled technique, a sample squat, hinge, push, pull and core plan, gradual progression, recovery and how cardio fits alongside lifting.",
     ],
   },
   {
@@ -106,7 +107,18 @@ function BlogsPage() {
       <section className="py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
           <Accordion type="single" collapsible className="space-y-3">
-            {ARTICLES.map((a, i) => (
+            {ARTICLES.map((a, i) => a.dedicated ? (
+              <div key={i} className="border border-border rounded-xl bg-card/60 px-5 sm:px-6 py-5">
+                <div className="flex items-start gap-4">
+                  <span className="font-display text-primary text-sm sm:text-base font-bold tabular-nums mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h2 className="font-display text-base sm:text-lg lg:text-xl font-bold uppercase leading-snug text-foreground">{a.title}</h2>
+                    <p className="mt-4 text-foreground/85 leading-relaxed">{a.body[0]}</p>
+                    <Link to="/blogs/strength-training-for-beginners" className="mt-4 inline-block text-primary font-semibold underline underline-offset-4">Read the beginner strength training guide</Link>
+                  </div>
+                </div>
+              </div>
+            ) : (
               <AccordionItem
                 key={i}
                 value={`article-${i}`}
