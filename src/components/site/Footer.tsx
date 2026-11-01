@@ -14,6 +14,7 @@ const QUICK = [
   { label: "Blogs", to: "/blogs" as const },
   { label: "Franchise", to: "/franchise" as const },
   { label: "Contact", to: "/contact" as const },
+  { label: "Gym FAQs", to: "/faq" as const },
 ];
 
 export default function Footer() {
