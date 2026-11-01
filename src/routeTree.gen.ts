@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BusinessNetworkIndexRouteImport } from './routes/business-network.index'
 import { Route as BusinessNetworkSlugRouteImport } from './routes/business-network.$slug'
+import { Route as BlogsStrengthTrainingForBeginnersRouteImport } from './routes/blogs_.strength-training-for-beginners'
 
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
@@ -70,6 +71,12 @@ const BusinessNetworkSlugRoute = BusinessNetworkSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BusinessNetworkRoute,
 } as any)
+const BlogsStrengthTrainingForBeginnersRoute =
+  BlogsStrengthTrainingForBeginnersRouteImport.update({
+    id: '/blogs_/strength-training-for-beginners',
+    path: '/blogs/strength-training-for-beginners',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
 }
@@ -91,6 +99,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network': typeof BusinessNetworkIndexRoute
 }
@@ -104,6 +113,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs_/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
 }
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
   fileRoutesByTo: FileRoutesByTo
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network'
   id:
@@ -141,6 +153,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs_/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
   fileRoutesById: FileRoutesById
@@ -154,6 +167,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
+  BlogsStrengthTrainingForBeginnersRoute: typeof BlogsStrengthTrainingForBeginnersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -228,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessNetworkSlugRouteImport
       parentRoute: typeof BusinessNetworkRoute
     }
+    '/blogs_/strength-training-for-beginners': {
+      id: '/blogs_/strength-training-for-beginners'
+      path: '/blogs/strength-training-for-beginners'
+      fullPath: '/blogs/strength-training-for-beginners'
+      preLoaderRoute: typeof BlogsStrengthTrainingForBeginnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -254,6 +275,8 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
+  BlogsStrengthTrainingForBeginnersRoute:
+    BlogsStrengthTrainingForBeginnersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
