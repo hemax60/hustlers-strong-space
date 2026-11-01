@@ -4,6 +4,6 @@
 - [x] Verify SSR, sitemap, navigation and mobile layout; report available build and credit results without deployment.
 
 # Beginner strength article SEO batch
-- [ ] Write one original beginner article with WHO citation, sample plan and route metadata/schema.
-- [ ] Replace only the existing strength accordion item with a summary/link and add sitemap URL.
-- [ ] Verify SSR, schema, blog navigation, other accordion items, sitemap and mobile layout; report credits without publishing.
+- [x] Write one original beginner article with WHO citation, sample plan and route metadata/schema.
+- [x] Replace only the existing strength accordion item with a summary/link and add sitemap URL.
+- [x] Verify SSR, schema, blog navigation, other accordion items, sitemap and mobile layout; report credits without publishing.
