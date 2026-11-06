@@ -8,6 +8,47 @@ import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
 import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
 import { ArrowRight, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SITE } from "@/lib/site-config";
+
+const memberReviews = [
+  {
+    name: "Isha Patel",
+    stars: 5,
+    excerpt: true,
+    quote: "Honestly, this is one of the best and most supportive gyms I’ve been to. ❤️\nThe owner and manager are extremely supportive and understanding. I had to raise a complaint only once, and the manager sir immediately took action, understood my problem properly, made me feel comfortable, and supported me throughout. That really made me feel safe and heard.",
+  },
+  {
+    name: "Femina Saamudree",
+    stars: 5,
+    excerpt: false,
+    quote: "Well maintained, well equipped , helpful trainers, friendly staff , that’s what comes to my mind when it comes to hustlers.\nThey also provide service of taking steam which is plus point. Gym is also open on Sundays for few hours in morning and evening with trainer.\nAs a woman who loves to do workout I can say that I am satisfied with the services of the gym.",
+  },
+  {
+    name: "Kush Patel",
+    stars: 5,
+    excerpt: false,
+    quote: "I have been training in Hustler’s Fitness for a while and it is been a amazing experience for me. The facilities provided by this gym is so good. And the most important thing in the gym is friendly, genuine, and helpful staff. Everyone is very communicative, supportive, and welcoming. Overall, a positive and comfortable environment for the people who want to workout.",
+  },
+  {
+    name: "PANKAJ PATEL",
+    stars: 5,
+    excerpt: false,
+    quote: "Absolutely loved my experience at Hustlers Health & Fitness..The professionalism, positive environment and team coordination are truly impressive. Everyone is respectful, supportive and welcoming…it genuinely feels like a family. One of the best fitness experiences I’ve had. Highly recommended!",
+  },
+  {
+    name: "589_merchent Vishakha",
+    stars: 5,
+    excerpt: false,
+    quote: "My friend and i have been working out at hustlers for the last 1year amd we’ve had a really great experience.we enjoyed our first year so much that we’re renewing for the second year too.❤️💪🏻\nHighly recommend!",
+  },
+  {
+    name: "Dipak Amrani",
+    stars: 4,
+    excerpt: false,
+    quote: "One of the best gym in the surat, Good staff and trainers.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -112,6 +153,38 @@ function Index() {
       </section>
 
       <Gallery />
+      <section aria-labelledby="member-reviews-heading" className="py-20 sm:py-24 bg-card/40 border-y border-border">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="text-center">
+            <h2 id="member-reviews-heading" className="font-display text-4xl sm:text-5xl font-bold uppercase text-balance">
+              What Our Members Say
+            </h2>
+            <p className="mt-5 text-xl sm:text-2xl font-semibold text-primary">4.9/5 on Google · 736 reviews</p>
+            <p className="mt-2 text-sm text-muted-foreground">Owner-verified snapshot · 6 November 2026 · Not live-updated</p>
+          </div>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {memberReviews.map((review) => (
+              <figure key={review.name} className="m-0 min-w-0 rounded-lg border border-border bg-card p-6 flex flex-col">
+                <div aria-label={`${review.stars} out of 5 stars`} className="text-primary text-xl leading-none">
+                  <span aria-hidden="true">{"★".repeat(review.stars)}</span>
+                </div>
+                <figcaption className="mt-4 font-semibold text-foreground break-words">{review.name}</figcaption>
+                {review.excerpt && <p className="mt-2 text-xs text-muted-foreground">Excerpt from Google review</p>}
+                <blockquote className="mt-4 text-sm leading-relaxed text-foreground/85 whitespace-pre-line break-words">
+                  {review.quote}{review.excerpt ? "…" : ""}
+                </blockquote>
+              </figure>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button asChild size="lg" className="h-auto min-h-12 max-w-full whitespace-normal bg-gradient-red shadow-red px-6 py-3 font-bold">
+              <a href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">
+                View All Reviews on Google <ArrowRight aria-hidden="true" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 text-center">
         <Link to="/faq" className="text-primary font-semibold underline underline-offset-4">
           Planning your first visit? Read our gym FAQs.
