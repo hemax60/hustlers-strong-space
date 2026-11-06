@@ -99,7 +99,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            © {YEAR} Hustlers Health & Fitness. All Rights Reserved.
+            © {YEAR} Hustlers Health & Fitness | Established 2022 | All Rights Reserved.
           </p>
           <p className="text-xs text-muted-foreground uppercase tracking-widest">
             Train Strong · Stay Consistent
