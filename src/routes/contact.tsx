@@ -19,6 +19,7 @@ export const Route = createFileRoute("/contact")({
         content: "Address, phone, WhatsApp, and gym timings.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/contact" }],
   }),
   component: ContactPage,
 });
