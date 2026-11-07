@@ -61,7 +61,11 @@ function FaqPage() {
     },
     {
       question: "What should I do before my first gym visit?",
-      answer: <p>Check the opening hours, wear comfortable workout clothing and suitable shoes, and bring water. Contact the team beforehand to ask about joining requirements, current fees and any items you should bring. Let the team know you are visiting for the first time and ask about equipment use before starting.</p>,
+      answer: <p>Check the opening hours and wear appropriate workout clothing. Clean indoor gym shoes are mandatory: bring them separately inside your gym bag and change into them at the gym — shoes worn outside are not allowed on the workout floor. Also bring a personal towel and a water bottle. Please follow the gym's hygiene, safety and equipment rules, and ask our staff for help with your first workout. This policy helps keep the gym clean, hygienic and comfortable for everyone.</p>,
+    },
+    {
+      question: "Can I wear my outdoor shoes inside the gym?",
+      answer: <p>No. Outdoor footwear is strictly prohibited on the workout floor at Hustlers Health & Fitness. All members and visitors must bring a separate pair of clean indoor workout shoes in their gym bag and change into them before entering the workout area. This rule is mandatory for everyone.</p>,
     },
   ];
 
