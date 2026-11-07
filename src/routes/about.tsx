@@ -22,6 +22,7 @@ export const Route = createFileRoute("/about")({
           "Meet the founder, our vision, mission, and the values that shape Hustlers Health & Fitness in Adajan, Surat.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/about" }],
   }),
   component: AboutPage,
 });

@@ -19,6 +19,7 @@ export const Route = createFileRoute("/gallery")({
         content: "Inside the gym: equipment, training floor, and atmosphere.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/gallery" }],
   }),
   component: GalleryPage,
 });

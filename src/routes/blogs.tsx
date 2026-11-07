@@ -14,6 +14,7 @@ export const Route = createFileRoute("/blogs")({
       { property: "og:title", content: "Blogs — Hustlers Health & Fitness" },
       { property: "og:description", content: "Expert blogs on training, nutrition, mindset, and long-term health." },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/blogs" }],
   }),
   component: BlogsPage,
 });

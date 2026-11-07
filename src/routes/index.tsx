@@ -58,6 +58,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Hustlers Health & Fitness — Premium Gym in Adajan, Surat" },
       { property: "og:description", content: "Train Strong. Stay Consistent. Become Your Best Version." },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/" }],
     scripts: [
       {
         type: "application/ld+json",

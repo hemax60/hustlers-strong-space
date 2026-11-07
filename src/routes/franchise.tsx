@@ -34,6 +34,7 @@ export const Route = createFileRoute("/franchise")({
       },
       { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://www.hustlershealthandfitness.com/franchise" }],
   }),
   component: FranchisePage,
 });
