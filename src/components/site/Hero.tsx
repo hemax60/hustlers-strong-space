@@ -23,12 +23,15 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-primary pulse-red" />
             Adajan, Surat
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-[1.05] text-foreground text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.1] text-foreground text-balance">
+            Premium Gym in <span className="text-primary">Adajan, Surat</span>
+          </h1>
+          <h2 className="mt-5 font-display text-2xl sm:text-3xl lg:text-4xl font-semibold uppercase leading-[1.15] text-foreground/90 text-balance">
             Transform Your Body.
             <span className="block text-primary">Transform Your Life.</span>
-          </h1>
+          </h2>
           <p className="mt-6 text-lg sm:text-xl text-foreground/85 max-w-xl">
-            Train Strong. Stay Consistent. Become Your Best Version.
+            Experience strength training, cardio, personal training and a supportive fitness environment at Hustlers Health &amp; Fitness in Adajan, Surat.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
