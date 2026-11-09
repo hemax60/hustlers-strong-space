@@ -77,6 +77,28 @@ export const Route = createFileRoute("/")({
             addressCountry: "IN",
           },
           hasMap: "https://share.google/p5wNfRukvIQAs2Jdn",
+          areaServed: [
+            {
+              "@type": "City",
+              name: "Surat",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Surat",
+                addressRegion: "Gujarat",
+                addressCountry: "IN",
+              },
+            },
+            {
+              "@type": "Place",
+              name: "Adajan",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Adajan",
+                addressRegion: "Gujarat",
+                addressCountry: "IN",
+              },
+            },
+          ],
           sameAs: [
             "https://www.instagram.com/hustlershealthandfitness/",
             "https://www.youtube.com/@hustlershealthandfitness",
