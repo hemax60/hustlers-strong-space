@@ -9,6 +9,7 @@ const NAV = [
   { label: "Gallery", to: "/gallery" as const },
   { label: "Business Network", to: "/business-network" as const },
   { label: "Blogs", to: "/blogs" as const },
+  { label: "Careers", to: "/careers" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 
@@ -36,7 +37,7 @@ export default function Header() {
           <img src={logo} alt="Hustlers Health & Fitness" className="h-9 sm:h-11 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-4">
           {NAV.map((n) => (
             <Link
               key={n.to}
@@ -75,7 +76,7 @@ export default function Header() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 text-foreground"
+          className="xl:hidden p-2 text-foreground"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -83,7 +84,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-lg border-t border-border">
+        <div className="xl:hidden bg-background/95 backdrop-blur-lg border-t border-border">
           <nav className="flex flex-col px-5 py-4 gap-1">
             {NAV.map((n) => (
               <Link

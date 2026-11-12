@@ -13,6 +13,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BusinessNetworkRouteImport } from './routes/business-network'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
@@ -39,6 +40,11 @@ const FaqRoute = FaqRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessNetworkRoute = BusinessNetworkRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/business-network': typeof BusinessNetworkRouteWithChildren
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/business-network': typeof BusinessNetworkRouteWithChildren
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/business-network'
+    | '/careers'
     | '/contact'
     | '/faq'
     | '/franchise'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blogs'
+    | '/careers'
     | '/contact'
     | '/faq'
     | '/franchise'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/business-network'
+    | '/careers'
     | '/contact'
     | '/faq'
     | '/franchise'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogsRoute: typeof BlogsRoute
   BusinessNetworkRoute: typeof BusinessNetworkRouteWithChildren
+  CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   FranchiseRoute: typeof FranchiseRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business-network': {
@@ -271,6 +291,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogsRoute: BlogsRoute,
   BusinessNetworkRoute: BusinessNetworkRouteWithChildren,
+  CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   FranchiseRoute: FranchiseRoute,

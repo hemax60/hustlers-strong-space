@@ -7,3 +7,8 @@
 - [x] Write one original beginner article with WHO citation, sample plan and route metadata/schema.
 - [x] Replace only the existing strength accordion item with a summary/link and add sitemap URL.
 - [x] Verify SSR, schema, blog navigation, other accordion items, sitemap and mobile layout; report credits without publishing.
+
+# Careers and hero loading update
+- [x] Add Careers page, role-specific WhatsApp applications, shared navigation/footer links and sitemap entry.
+- [x] Add the existing hero image’s intrinsic dimensions and priority loading without changing its crop or content.
+- [x] Verify Careers SSR, desktop/mobile navigation, application links, sitemap and hero attributes; check automatic build and report credits without publishing.

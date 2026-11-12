@@ -8,6 +8,10 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <img
         src={hero}
+        width={1240}
+        height={930}
+        loading="eager"
+        fetchPriority="high"
         alt="Inside Hustlers Health & Fitness — premium gym floor with red equipment"
         className="absolute inset-0 w-full h-full object-cover"
       />
