@@ -8,6 +8,10 @@
 - [x] Replace only the existing strength accordion item with a summary/link and add sitemap URL.
 - [x] Verify SSR, schema, blog navigation, other accordion items, sitemap and mobile layout; report credits without publishing.
 
+# Beginner gym frequency article SEO batch
+- [x] Add dedicated article at /blogs/how-many-days-a-week-should-beginners-go-to-the-gym with WHO/CDC references, metadata and Article schema.
+- [x] Link from Blogs index as a dedicated item and add sitemap entry; verify SSR, navigation, sitemap and mobile without publishing.
+
 # Careers and hero loading update
 - [x] Add Careers page, role-specific WhatsApp applications, shared navigation/footer links and sitemap entry.
 - [x] Add the existing hero image’s intrinsic dimensions and priority loading without changing its crop or content.

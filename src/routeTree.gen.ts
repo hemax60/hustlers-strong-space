@@ -21,6 +21,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BusinessNetworkIndexRouteImport } from './routes/business-network.index'
 import { Route as BusinessNetworkSlugRouteImport } from './routes/business-network.$slug'
 import { Route as BlogsStrengthTrainingForBeginnersRouteImport } from './routes/blogs_.strength-training-for-beginners'
+import { Route as BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport } from './routes/blogs_.how-many-days-a-week-should-beginners-go-to-the-gym'
 
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
@@ -83,6 +84,12 @@ const BlogsStrengthTrainingForBeginnersRoute =
     path: '/blogs/strength-training-for-beginners',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute =
+  BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport.update({
+    id: '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym',
+    path: '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
@@ -107,6 +115,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network': typeof BusinessNetworkIndexRoute
@@ -122,6 +131,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs_/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network'
@@ -165,6 +177,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs_/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
@@ -180,6 +193,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
+  BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute: typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   BlogsStrengthTrainingForBeginnersRoute: typeof BlogsStrengthTrainingForBeginnersRoute
 }
 
@@ -269,6 +283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsStrengthTrainingForBeginnersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym': {
+      id: '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym'
+      path: '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
+      fullPath: '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
+      preLoaderRoute: typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -296,6 +317,8 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
+  BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute:
+    BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute,
   BlogsStrengthTrainingForBeginnersRoute:
     BlogsStrengthTrainingForBeginnersRoute,
 }

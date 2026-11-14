@@ -19,7 +19,7 @@ export const Route = createFileRoute("/blogs")({
   component: BlogsPage,
 });
 
-type Article = { title: string; body: string[]; cta?: string; dedicated?: boolean };
+type Article = { title: string; body: string[]; cta?: string; dedicated?: boolean; href?: "/blogs/strength-training-for-beginners" | "/blogs/how-many-days-a-week-should-beginners-go-to-the-gym" };
 
 const ARTICLES: Article[] = [
   {
@@ -38,8 +38,17 @@ const ARTICLES: Article[] = [
   {
     title: "Strength Training for Beginners",
     dedicated: true,
+    href: "/blogs/strength-training-for-beginners",
     body: [
       "Start with a manageable two-day full-body routine. This beginner guide covers controlled technique, a sample squat, hinge, push, pull and core plan, gradual progression, recovery and how cardio fits alongside lifting.",
+    ],
+  },
+  {
+    title: "How Many Days a Week Should Beginners Go to the Gym?",
+    dedicated: true,
+    href: "/blogs/how-many-days-a-week-should-beginners-go-to-the-gym",
+    body: [
+      "Two to three full-body sessions a week is enough to start. This guide covers a sample weekly schedule, technique basics, where cardio fits, recovery and building a routine that lasts.",
     ],
   },
   {
@@ -115,7 +124,7 @@ function BlogsPage() {
                   <div>
                     <h2 className="font-display text-base sm:text-lg lg:text-xl font-bold uppercase leading-snug text-foreground">{a.title}</h2>
                     <p className="mt-4 text-foreground/85 leading-relaxed">{a.body[0]}</p>
-                    <Link to="/blogs/strength-training-for-beginners" className="mt-4 inline-block text-primary font-semibold underline underline-offset-4">Read the beginner strength training guide</Link>
+                    {a.href && <Link to={a.href} className="mt-4 inline-block text-primary font-semibold underline underline-offset-4">Read the full guide</Link>}
                   </div>
                 </div>
               </div>
