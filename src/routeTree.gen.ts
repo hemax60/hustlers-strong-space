@@ -21,6 +21,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BusinessNetworkIndexRouteImport } from './routes/business-network.index'
 import { Route as BusinessNetworkSlugRouteImport } from './routes/business-network.$slug'
 import { Route as BlogsStrengthTrainingForBeginnersRouteImport } from './routes/blogs_.strength-training-for-beginners'
+import { Route as BlogsReturningToTheGymAfterABreakRouteImport } from './routes/blogs_.returning-to-the-gym-after-a-break'
 import { Route as BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport } from './routes/blogs_.how-many-days-a-week-should-beginners-go-to-the-gym'
 
 const GalleryRoute = GalleryRouteImport.update({
@@ -84,6 +85,12 @@ const BlogsStrengthTrainingForBeginnersRoute =
     path: '/blogs/strength-training-for-beginners',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogsReturningToTheGymAfterABreakRoute =
+  BlogsReturningToTheGymAfterABreakRouteImport.update({
+    id: '/blogs_/returning-to-the-gym-after-a-break',
+    path: '/blogs/returning-to-the-gym-after-a-break',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute =
   BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport.update({
     id: '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym',
@@ -102,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
+  '/blogs/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
@@ -116,6 +124,7 @@ export interface FileRoutesByTo {
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
+  '/blogs/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network': typeof BusinessNetworkIndexRoute
@@ -132,6 +141,7 @@ export interface FileRoutesById {
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
+  '/blogs_/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs_/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
   '/business-network/$slug': typeof BusinessNetworkSlugRoute
   '/business-network/': typeof BusinessNetworkIndexRoute
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/franchise'
     | '/gallery'
     | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
+    | '/blogs/returning-to-the-gym-after-a-break'
     | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/franchise'
     | '/gallery'
     | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
+    | '/blogs/returning-to-the-gym-after-a-break'
     | '/blogs/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network'
@@ -178,6 +190,7 @@ export interface FileRouteTypes {
     | '/franchise'
     | '/gallery'
     | '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym'
+    | '/blogs_/returning-to-the-gym-after-a-break'
     | '/blogs_/strength-training-for-beginners'
     | '/business-network/$slug'
     | '/business-network/'
@@ -194,6 +207,7 @@ export interface RootRouteChildren {
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
   BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute: typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
+  BlogsReturningToTheGymAfterABreakRoute: typeof BlogsReturningToTheGymAfterABreakRoute
   BlogsStrengthTrainingForBeginnersRoute: typeof BlogsStrengthTrainingForBeginnersRoute
 }
 
@@ -283,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsStrengthTrainingForBeginnersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogs_/returning-to-the-gym-after-a-break': {
+      id: '/blogs_/returning-to-the-gym-after-a-break'
+      path: '/blogs/returning-to-the-gym-after-a-break'
+      fullPath: '/blogs/returning-to-the-gym-after-a-break'
+      preLoaderRoute: typeof BlogsReturningToTheGymAfterABreakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym': {
       id: '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym'
       path: '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
@@ -319,6 +340,8 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute:
     BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute,
+  BlogsReturningToTheGymAfterABreakRoute:
+    BlogsReturningToTheGymAfterABreakRoute,
   BlogsStrengthTrainingForBeginnersRoute:
     BlogsStrengthTrainingForBeginnersRoute,
 }

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/blogs")({
   component: BlogsPage,
 });
 
-type Article = { title: string; body: string[]; cta?: string; dedicated?: boolean; href?: "/blogs/strength-training-for-beginners" | "/blogs/how-many-days-a-week-should-beginners-go-to-the-gym" };
+type Article = { title: string; body: string[]; cta?: string; dedicated?: boolean; href?: "/blogs/strength-training-for-beginners" | "/blogs/how-many-days-a-week-should-beginners-go-to-the-gym" | "/blogs/returning-to-the-gym-after-a-break" };
 
 const ARTICLES: Article[] = [
   {
@@ -49,6 +49,14 @@ const ARTICLES: Article[] = [
     href: "/blogs/how-many-days-a-week-should-beginners-go-to-the-gym",
     body: [
       "Two to three full-body sessions a week is enough to start. This guide covers a sample weekly schedule, technique basics, where cardio fits, recovery and building a routine that lasts.",
+    ],
+  },
+  {
+    title: "Returning to the Gym After a Long Break: A Beginner-Friendly Guide",
+    dedicated: true,
+    href: "/blogs/returning-to-the-gym-after-a-break",
+    body: [
+      "Ease back into training with two full-body sessions weekly, lighter loads and a focus on technique. This guide covers easy cardio, recovery, managing soreness and rebuilding consistency without chasing old personal bests.",
     ],
   },
   {

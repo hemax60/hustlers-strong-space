@@ -16,3 +16,7 @@
 - [x] Add Careers page, role-specific WhatsApp applications, shared navigation/footer links and sitemap entry.
 - [x] Add the existing hero image’s intrinsic dimensions and priority loading without changing its crop or content.
 - [x] Verify Careers SSR, desktop/mobile navigation, application links, sitemap and hero attributes; check automatic build and report credits without publishing.
+
+# Return-to-gym article SEO batch
+- [x] Add the approved return-to-gym article, route metadata, Article schema, Blogs link and sitemap entry.
+- [x] Verify rendered article, mobile layout, Blogs navigation, sitemap and automatic build; leave publishing separate.
