@@ -37,7 +37,7 @@ function FaqPage() {
     },
     {
       question: "Is personal training available?",
-      answer: <p>Please contact the gym to confirm current personal-training availability, what sessions include, and the fees before making arrangements.</p>,
+      answer: <p>Yes — see our <Link to="/personal-training" className="text-primary underline underline-offset-4">Personal Training page</Link> for what one-to-one coaching includes, and contact the gym to confirm current availability and fees before making arrangements.</p>,
     },
     {
       question: "What strength and cardio equipment does the gym have?",

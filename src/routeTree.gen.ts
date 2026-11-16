@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PersonalTrainingRouteImport } from './routes/personal-training'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -24,6 +25,11 @@ import { Route as BlogsStrengthTrainingForBeginnersRouteImport } from './routes/
 import { Route as BlogsReturningToTheGymAfterABreakRouteImport } from './routes/blogs_.returning-to-the-gym-after-a-break'
 import { Route as BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRouteImport } from './routes/blogs_.how-many-days-a-week-should-beginners-go-to-the-gym'
 
+const PersonalTrainingRoute = PersonalTrainingRouteImport.update({
+  id: '/personal-training',
+  path: '/personal-training',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/personal-training': typeof PersonalTrainingRoute
   '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/personal-training': typeof PersonalTrainingRoute
   '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
@@ -140,6 +148,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
+  '/personal-training': typeof PersonalTrainingRoute
   '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym': typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   '/blogs_/returning-to-the-gym-after-a-break': typeof BlogsReturningToTheGymAfterABreakRoute
   '/blogs_/strength-training-for-beginners': typeof BlogsStrengthTrainingForBeginnersRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/personal-training'
     | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs/returning-to-the-gym-after-a-break'
     | '/blogs/strength-training-for-beginners'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/personal-training'
     | '/blogs/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs/returning-to-the-gym-after-a-break'
     | '/blogs/strength-training-for-beginners'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/franchise'
     | '/gallery'
+    | '/personal-training'
     | '/blogs_/how-many-days-a-week-should-beginners-go-to-the-gym'
     | '/blogs_/returning-to-the-gym-after-a-break'
     | '/blogs_/strength-training-for-beginners'
@@ -206,6 +218,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
+  PersonalTrainingRoute: typeof PersonalTrainingRoute
   BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute: typeof BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute
   BlogsReturningToTheGymAfterABreakRoute: typeof BlogsReturningToTheGymAfterABreakRoute
   BlogsStrengthTrainingForBeginnersRoute: typeof BlogsStrengthTrainingForBeginnersRoute
@@ -213,6 +226,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/personal-training': {
+      id: '/personal-training'
+      path: '/personal-training'
+      fullPath: '/personal-training'
+      preLoaderRoute: typeof PersonalTrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
@@ -338,6 +358,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
+  PersonalTrainingRoute: PersonalTrainingRoute,
   BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute:
     BlogsHowManyDaysAWeekShouldBeginnersGoToTheGymRoute,
   BlogsReturningToTheGymAfterABreakRoute:

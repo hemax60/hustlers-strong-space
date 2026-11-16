@@ -20,3 +20,7 @@
 # Return-to-gym article SEO batch
 - [x] Add the approved return-to-gym article, route metadata, Article schema, Blogs link and sitemap entry.
 - [x] Verify rendered article, mobile layout, Blogs navigation, sitemap and automatic build; leave publishing separate.
+# Personal Training service page (Phase 1)
+- [x] Add /personal-training page with factual one-to-one coaching content, WhatsApp/call CTAs, Service schema, canonical.
+- [x] Link from Header, Footer and FAQ PT answer; add sitemap entry.
+- [x] Verify SSR, metadata, links, sitemap and mobile layout; report credits without publishing.
