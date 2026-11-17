@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/site-config";
 import { HOURS } from "@/components/site/Hours";
 
-const YEAR = new Date().getFullYear();
+const YEAR = Math.max(2022, new Date().getFullYear());
 
 const QUICK = [
   { label: "Home", to: "/" as const },
