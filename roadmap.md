@@ -24,3 +24,7 @@
 - [x] Add /personal-training page with factual one-to-one coaching content, WhatsApp/call CTAs, Service schema, canonical.
 - [x] Link from Header, Footer and FAQ PT answer; add sitemap entry.
 - [x] Verify SSR, metadata, links, sitemap and mobile layout; report credits without publishing.
+
+# Warm-up Fitness Update
+- [x] Add one separate Fitness Updates page with the exact approved Google post, original photo, source link, Blogs link and sitemap entry.
+- [x] Verify desktop/mobile, rendered content, photo and metadata; save for authorized publication (local photo framing checked with original file; production asset returns HTTP 200).

@@ -169,6 +169,9 @@ function BlogsPage() {
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="mt-10 pt-6 border-t border-border">
+            <Link to="/fitness-updates" className="text-primary font-semibold underline underline-offset-4">Fitness Updates: DON’T SKIP YOUR WARM-UP! 🔥</Link>
+          </div>
         </div>
       </section>
 

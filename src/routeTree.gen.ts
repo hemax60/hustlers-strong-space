@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PersonalTrainingRouteImport } from './routes/personal-training'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FranchiseRouteImport } from './routes/franchise'
+import { Route as FitnessUpdatesRouteImport } from './routes/fitness-updates'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -38,6 +39,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const FranchiseRoute = FranchiseRouteImport.update({
   id: '/franchise',
   path: '/franchise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FitnessUpdatesRoute = FitnessUpdatesRouteImport.update({
+  id: '/fitness-updates',
+  path: '/fitness-updates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/fitness-updates': typeof FitnessUpdatesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/personal-training': typeof PersonalTrainingRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/fitness-updates': typeof FitnessUpdatesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/personal-training': typeof PersonalTrainingRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/fitness-updates': typeof FitnessUpdatesRoute
   '/franchise': typeof FranchiseRoute
   '/gallery': typeof GalleryRoute
   '/personal-training': typeof PersonalTrainingRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/faq'
+    | '/fitness-updates'
     | '/franchise'
     | '/gallery'
     | '/personal-training'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/faq'
+    | '/fitness-updates'
     | '/franchise'
     | '/gallery'
     | '/personal-training'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/faq'
+    | '/fitness-updates'
     | '/franchise'
     | '/gallery'
     | '/personal-training'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  FitnessUpdatesRoute: typeof FitnessUpdatesRoute
   FranchiseRoute: typeof FranchiseRoute
   GalleryRoute: typeof GalleryRoute
   PersonalTrainingRoute: typeof PersonalTrainingRoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/franchise'
       fullPath: '/franchise'
       preLoaderRoute: typeof FranchiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fitness-updates': {
+      id: '/fitness-updates'
+      path: '/fitness-updates'
+      fullPath: '/fitness-updates'
+      preLoaderRoute: typeof FitnessUpdatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -356,6 +376,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  FitnessUpdatesRoute: FitnessUpdatesRoute,
   FranchiseRoute: FranchiseRoute,
   GalleryRoute: GalleryRoute,
   PersonalTrainingRoute: PersonalTrainingRoute,
